@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Moderne</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">📝 To-Do List</h1>
+            <p class="subtitle">Organisez vos tâches avec style</p>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalTasks">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedTasks">0</span>
+                <span class="stat-label">Terminées</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="progressPercentage">0%</span>
+                <span class="stat-label">Progression</span>
+            </div>
+        </div>
+
+        <!-- Add Task Form -->
+        <form class="add-task-form" id="addTaskForm">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="Ajouter une nouvelle tâche..." 
+                    maxlength="100"
+                    required
+                >
+            </div>
+            <div class="subtasks-toggle">
+                <input type="checkbox" id="addSubtasksCheckbox">
+                <label for="addSubtasksCheckbox">Ajouter des sous-tâches</label>
+            </div>
+            <div class="subtasks-ui" id="addSubtasksUI" style="display:none">
+                <ul class="subtasks-list" id="addSubtasksList"></ul>
+                <div class="subtasks-input-group">
+                    <input type="text" id="addSubtaskInput" placeholder="Nouvelle sous-tâche..." maxlength="100">
+                    <button type="button" id="addSubtaskBtn">Ajouter</button>
+                </div>
+            </div>
+            <div class="add-btn-row" id="addBtnRow">
+                <button type="submit" class="add-btn">
+                    <span class="add-icon">+</span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Tasks List -->
+        <div class="tasks-container">
+            <ul class="tasks-list" id="tasksList">
+                <!-- Tasks will be dynamically added here -->
+            </ul>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">📋</div>
+            <h3>Aucune tâche pour le moment</h3>
+            <p>Commencez par ajouter votre première tâche !</p>
+        </div>
+    </div>
+
+    <!-- Circular Menu Template -->
+    <div class="circular-menu" id="circularMenu">
+        <div class="menu-center" id="circularMenuCenter">
+            <span class="close-icon">&#10005;</span>
+        </div>
+        <button class="menu-item menu-item-1" data-action="toggle">
+            <span class="menu-icon">✅</span>
+        </button>
+        <button class="menu-item menu-item-2" data-action="edit">
+            <span class="menu-icon">📝</span>
+        </button>
+        <button class="menu-item menu-item-3" data-action="delete">
+            <span class="menu-icon">🗑️</span>
+        </button>
+        <button class="menu-item menu-item-4" data-action="moveUp">
+            <span class="menu-icon">🔼</span>
+        </button>
+        <button class="menu-item menu-item-5" data-action="moveDown">
+            <span class="menu-icon">🔽</span>
+        </button>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Modifier la tâche</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editInput" placeholder="Nouveau texte de la tâche..." maxlength="100">
+                <div class="subtasks-toggle">
+                    <input type="checkbox" id="editSubtasksCheckbox">
+                    <label for="editSubtasksCheckbox">Ajouter des sous-tâches</label>
+                </div>
+                <div class="subtasks-ui" id="editSubtasksUI" style="display:none">
+                    <ul class="subtasks-list" id="editSubtasksList"></ul>
+                    <div class="subtasks-input-group">
+                        <input type="text" id="editSubtaskInput" placeholder="Nouvelle sous-tâche..." maxlength="100">
+                        <button type="button" id="editSubtaskBtn">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelEdit">Annuler</button>
+                <button class="btn btn-primary" id="saveEdit">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
