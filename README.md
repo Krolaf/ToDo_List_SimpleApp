@@ -140,12 +140,6 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 **Développé avec ❤️ en HTML/CSS/JavaScript vanilla** 
 
-## Captures d'écran
-![Exemple UI](screenshot.png)
-
-## Auteurs
-- Design & code : [Votre nom]
-
 ---
 
 N'hésitez pas à proposer des améliorations ou à signaler des bugs ! 
